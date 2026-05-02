@@ -1,0 +1,236 @@
+@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap");
+
+:root {
+  --color-pri: #b9c3f6;
+  --color-sec: #1a2c53;
+  --color-ter: #00c9c8;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  font-family: Dosis, sans-serif;
+  background-color: var(--color-pri);
+  padding: 2%;
+
+  overflow-x: hidden;
+}
+
+header {
+  font-size: 2rem;
+  margin-bottom: 0.8em;
+}
+
+.fa-plus, .fa-rotate-left {
+  position: fixed;
+  top: 0;
+
+  font-size: 2.3rem;
+  color: var(--color-pri);
+  background-color: var(--color-sec);
+  padding: 5px;
+  margin: 15px;
+  border-radius: 5px;
+
+  transition: all 300ms ease;
+}
+
+.fa-plus {
+  left: 0;
+}
+
+.fa-rotate-left {
+  right: 0;
+}
+
+.fa-plus:hover, .fa-rotate-left:hover {
+  color: var(--color-sec);
+  background-color: var(--color-ter);
+
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.fa-rotate-left {
+  position: fixed;
+  top: 0;
+  right: 0;
+  font-size: 2.3rem;
+  color: var(--color-pri);
+  background-color: var(--color-sec);
+  padding: 5px;
+  margin: 15px;
+  border-radius: 5px;
+
+  transition: all 300ms ease;
+}
+
+.notes-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+}
+
+.add-area {
+  position: fixed;
+  top: 12%;
+  left: -500px;
+
+  display: flex;
+  flex-direction: column;
+
+  transition: all 300ms ease;
+}
+
+.add-area > h2 {
+  margin-bottom: 5px;
+  margin-left: 10px;
+}
+
+.add-area > h2:last-of-type {
+  margin-top: 10px;
+}
+
+.add-area > input, .add-area > textarea {
+  font-size: 1.4rem;
+  color: var(--color-pri);
+  background-color: var(--color-sec);
+  padding: 0.4em;
+  border-radius: 10px;
+
+  overflow: hidden;
+  resize: none;
+}
+
+.create-btn {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--color-pri);
+  background-color: var(--color-sec);
+  padding: 0.7em;
+  margin-top: 10px;
+  border-radius: 5px;
+  opacity: 0.5;
+  
+  transition: all 300ms ease;
+}
+
+.create-btn.clickable {
+  opacity: 1;
+}
+
+.create-btn.clickable:hover {
+  color: var(--color-sec);
+  background-color: var(--color-ter);
+
+  cursor: pointer;
+}
+
+.note {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 55%;
+  color: var(--color-pri);
+  background-color: var(--color-sec);
+  padding: 1em;
+  margin-bottom: 2%;
+  border-radius: 5px;
+
+  transition: all 300ms ease;
+}
+
+.note:hover {
+  color: var(--color-sec);
+  background-color: var(--color-ter);
+
+  transform: scale(1.01);
+}
+
+.note > .fa-x {
+  display: none;
+
+  position: absolute;
+  top: 15px;
+  right: 15px;
+
+  cursor: pointer;
+}
+
+.note:hover > .fa-x {
+  display: block;
+}
+
+.note > h2 {
+  margin-bottom: 0.3em;
+}
+
+.note > p {
+  margin-bottom: 0.5em;
+}
+
+.empty-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 50vh;
+  font-size: 1.2rem;
+  margin-top: 3em;
+}
+
+.empty-area > i {
+  font-size: 6rem;
+  animation: swirl-around 15s ease-in-out infinite;
+}
+
+.removed, .removed:hover {
+  transform: translateX(100%);
+  opacity: 0;
+  font-size: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.shown {
+  transform: translate(510px);
+}
+
+.rotated, .rotated:hover {
+  transform: rotate(45deg);
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes swirl-around {
+  0% { transform: translate(0) rotate(0); }
+  10% { transform: translate(-30px, -50px) rotate(-20deg); }
+  20% { transform: translate(-120px, -80px) rotate(20deg); }
+  30% { transform: translate(120px, -70px) rotate(-40deg); }
+  40% { transform: translate(150px, 100px) rotate(60deg); }
+  50% { transform: translate(-170px, 50px) rotate(-20deg); }
+  60% { transform: translate(-100px, 200px) rotate(-80deg); }
+  70% { transform: translate(-50px, 50px) rotate(-20deg); }
+  80% { transform: translate(100px, 200px) rotate(20deg); }
+  90% { transform: translate(130px, 50px) rotate(-30deg); }
+  100% { transform: translate(0) rotate(0); }
+}
