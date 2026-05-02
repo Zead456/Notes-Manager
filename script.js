@@ -1,6 +1,7 @@
 // Check for saved cards and parse them.
 let savedNotes = [];
-savedNotes = JSON.parse(localStorage.getItem("savedNotes"));
+if (localStorage.getItem("savedNotes"))
+  savedNotes = JSON.parse(localStorage.getItem("savedNotes"));
 const emptyArea = document.getElementsByClassName("empty-area")[0];
 if (!checkEmpty()) {
   savedNotes.forEach(e => {
